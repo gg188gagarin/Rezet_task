@@ -6,39 +6,60 @@ let text = [
 let rulls = [
     ["LEFT","RIGHT","LEFT"],
 ];
-const str_len = 16-2 ; //еще два символа * по бокам
+const str_len = 16 ; //еще два символа * по бокам
 let k=0; //счетчик символов
-let temporaryArr=0;  //временное хранилище
+let temporaryArr = [];  //временное хранилище
+let q=0; // счетчик строк вывода
 
-
-
+temporaryArr[q]= "******************";
 
 for (let i = 0, len = text.length; i < len; i++) {
-    temporaryArr[0]="****************";
-    for (let j = 0, len = text[i].length; j < len; j++) {
-     k=k+text[i][j].length;
+    for (let j = 0, leng = text[i].length; j < leng; j++) {
 
-     // if ( rulls[i]==="LEFT"){
-    //     temporaryArr=
-    // }
-
-
-     if (temporaryArr[i+1].length > 1) {
-         k=temporaryArr[i+1].length+text[i][j].length+1;
-         if ( k<str_len){
-             temporaryArr[i+1].push(" ");
-             temporaryArr[i+1].push(text[i][j]);
+        k=temporaryArr[q].length;
+        k=k + text[i][j].length;
+        k++;
+         if ( k < str_len){
+             temporaryArr[q]= +" ";
+             temporaryArr[q]= +(text[i][j]);
          }
-     }
 
-     temporaryArr[i].push('*');
-     temporaryArr.unshift[i]('*');
 
-     if ( temporaryArr.length>=str_len ){
-         console.log('')
+         if ( k === str_len) {
+             temporaryArr[q]='*'+temporaryArr[q];
+             temporaryArr[q]= +'*';
+             console.log( temporaryArr[q] );
+             q++;
+         }
 
-     }
+
+         if ( k > str_len){
+                 if ( rulls[i] === "LEFT"){
+
+                     for (let p=0; p === str_len-temporaryArr[q].length;p++){
+                         temporaryArr[q]= +' ';
+                     }
+                 }
+                 else {
+                     for (let p=0; p === str_len-temporaryArr[q].length;p++){
+                         temporaryArr[q]= ' '+temporaryArr[q];
+                     }
+                 }
+                 temporaryArr[q]='*'+temporaryArr[q];
+                 temporaryArr[q]=+'*';
+                 console.log( temporaryArr[q] );
+                 temporaryArr [q]= +'';
+         }
+
+         k=0;
+
+
 
     }
+
+    temporaryArr[q]='*'+temporaryArr[q];
+    temporaryArr[q]= +'*';
+    q++;
 }
+
 
