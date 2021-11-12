@@ -10,9 +10,8 @@ const str_len = 16 ; //еще два символа * по бокам
 let k=0; //счетчик символов
 let temporaryArr = [];  //временное хранилище
 let q=0; // счетчик строк вывода
-
 temporaryArr[q]= "******************";
-
+q++;
 for (let i = 0, len = text.length; i < len; i++) {
     for (let j = 0, leng = text[i].length; j < leng; j++) {
 
